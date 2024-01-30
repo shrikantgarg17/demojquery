@@ -101,7 +101,7 @@ function App() {
   return (
     <div className="container">
       <div className="card-plus">
-        <button className="card-plus-notify" onClick={() => setShowModal(true)}>
+        <button className="card-plus-notify" data-bs-toggle="modal" onClick={() => setShowModal(true)}>
           <i className="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: '30px' }}></i>
           <p>Giỏ hàng</p>
           <p className="count-shoppingCard">{shoppingCart.length}</p>
@@ -111,8 +111,8 @@ function App() {
         <div className="row">
           {productList.map(product => (
             <div key={product.id} className="col-4">
-              <div className="card" style={{ width: '18rem' }}>
-                <img className="card-img-top img-thumbnail" src={product.img} alt="Card cap" />
+              <div className="card col-sm-3 col-lg-3 col-md-3 mb-2" style={{ width: '18rem', maxHeight:'470px' }}>
+                <img className="card-img-top img-thumbnail" src={product.img} alt="Card cap" style={{maxHeight:'286px'}} />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
                   <p className="card-price">Price : {product.priceDisplay} VNĐ</p>
@@ -128,7 +128,7 @@ function App() {
       </div>
 
       {showModal && (
-        <div className="modal" id="md-shoppingcard-detail" tabIndex="-1" role="dialog">
+        <div className="modal" id="md-shoppingcard-detail" tabIndex="-1" role="dialog" style={{display:'block'}}>
           <div className="modal-dialog modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
