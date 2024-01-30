@@ -5,51 +5,51 @@ import './BlogTable.css';
 const initialProductList = [
   {
     id: 1,
-    name: "Iphone11",
-    priceDisplay: "12.000.000",
-    price: 12000000,
+    name: "Denim mermaid skirt",
+    priceDisplay: "35",
+    price: 35,
     quantity: 10,
-    img: "./img/iphone1.jpg"
+    img: "./img/apparel1.png"
   },
   {
     id: 2,
-    name: "Iphone12",
-    priceDisplay: "15.000.000",
-    price: 15000000,
+    name: "Sleeveless denim dress",
+    priceDisplay: "15",
+    price: 15,
     quantity: 5,
-    img: "./img/iphone2.jpg"
+    img: "./img/apparel2.png"
   },
   {
             id:3,
-            name:"Iphone13",
-            priceDisplay:"20.000.000",
-            price:20000000,
+            name:"Cotton denim dress",
+            priceDisplay:"20",
+            price:20,
             quantity:6,
-            img:"./img/iphone3.jpg"
+            img:"./img/apparel3.png"
         },
         {
             id:4,
-            name:"Iphone13 promax",
-            priceDisplay:"25.580.000",
-            price:25580000,
+            name:"Wide High Jeans",
+            priceDisplay:"30",
+            price:30,
             quantity:6,
-            img:"./img/iphone1.jpg"
+            img:"./img/apparel4.png"
         },
         {
             id:5,
-            name:"Iphone14",
-            priceDisplay:"36.190.000",
-            price:36190000,
+            name:"Denim popover shirt",
+            priceDisplay:"36",
+            price:36,
             quantity:8,
-            img:"./img/iphone2.jpg"
+            img:"./img/apparel5.png"
         },
         {
             id:6,
-            name:"Iphone14 promax",
-            priceDisplay:"40.980.000",
-            price:40980000,
+            name:"Denim shirt dress",
+            priceDisplay:"40",
+            price:40,
             quantity:15,
-            img:"./img/iphone3.jpg"
+            img:"./img/apparel6.png"
         },
 ];
 
@@ -103,7 +103,7 @@ function App() {
       <div className="card-plus">
         <button className="card-plus-notify" data-bs-toggle="modal" onClick={() => setShowModal(true)}>
           <i className="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: '30px' }}></i>
-          <p>Giỏ hàng</p>
+          <p>Cart</p>
           <p className="count-shoppingCard">{shoppingCart.length}</p>
         </button>
       </div>
@@ -115,7 +115,7 @@ function App() {
                 <img className="card-img-top img-thumbnail" src={product.img} alt="Card cap" style={{maxHeight:'286px'}} />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-price">Price : {product.priceDisplay} VNĐ</p>
+                  <p className="card-price">Price : {product.priceDisplay} $</p>
                   <p className="card-quantity">Quantity : {product.quantity}</p>
                   <button className="btn btn-primary" onClick={() => handleAddToCart(product.id)}>
                     <i className="fa fa-plus" aria-hidden="true"></i> Add to Cart
@@ -132,14 +132,14 @@ function App() {
           <div className="modal-dialog modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Thông tin giỏ hàng</h5>
+                <h5 className="modal-title">Your Shopping Cart</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => setShowModal(false)}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div className="modal-body">
                 {shoppingCart.length === 0 ? (
-                  <p>Chưa có sản phẩm nào trong giỏ hàng</p>
+                  <p>Your Shopping cart</p>
                 ) : (
                   <React.Fragment>
                     <table className="table table-bordered" id="tbl-shoppingcard-detail">
@@ -165,19 +165,19 @@ function App() {
                               <button className="btn btn-primary" onClick={() => handleIncreaseQuantity(item.id)}>+</button>
                             </td>
                             <td>{item.priceDisplay}</td>
-                            <td>{(item.quantity * item.price).toLocaleString()} VNĐ</td>
+                            <td>{(item.quantity * item.price).toLocaleString()} $</td>
                           </tr>
                         ))}
                       </tbody>
                     </table>
-                    <p className="info-total-amount">Tổng tiền : {totalAmount.toLocaleString()} VNĐ</p>
+                    <p className="info-total-amount">Total amount : {totalAmount.toLocaleString()} Dollar</p>
                     <p className="info-notify-pay"></p>
                   </React.Fragment>
                 )}
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-success" id="btn-pay" onClick={() => { setShowModal(false); setShoppingCart([]); }}>
-                  Thanh toán
+                  Submit
                 </button>
               </div>
             </div>
