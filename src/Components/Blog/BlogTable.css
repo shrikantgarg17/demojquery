@@ -65,6 +65,7 @@
 
 .product .card {
     width: 18rem;
+    max-width: 470px;
 }
 
 .product .card-title {
